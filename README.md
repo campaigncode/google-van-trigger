@@ -3,6 +3,10 @@
 <b>A simple google script that listens to a trigger from a google form, uses said data to apply a survey response in VAN, and syncs the results to an output
 google spreadsheet</b>
 
+## Overview
+
+<img src="./scope.png"/>
+
 ## Prerequisites
 
 -   A google form that gets at least the following information from the voter. Each value must be a separate field, in the following order:
