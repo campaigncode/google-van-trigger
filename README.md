@@ -30,12 +30,12 @@ google sheet by the trigger.
 
 1. Create a file called `appscript.json` under <i>Files</i> in the project
 2. Copy code from `appscript.json` in this repository to `appscript.json` in your project. Save the file
-3. Create a file called `Code.gs` under <i>Files</i> in the project
-4. Copy all code from `Cods.gs` in this repository to `Code.gs` in your project
+3. Create a file called `trigger.gs` under <i>Files</i> in the project
+4. Copy all code from `trigger.gs` in this repository to `trigger.gs` in your project
 
 ## Configuration
 
-In `Code.gs`, replace:
+In `trigger.gs`, replace:
 
 -   `<GOOGLE FORM ID>` with the ID from the Google Form URL
 -   `<GOOGLE SHEET ID>` with the ID from the Google Sheet URL
@@ -47,8 +47,8 @@ In `Code.gs`, replace:
 
 -   Once setup and configuration is complete, click run. Make sure to click run only once! Else, you will create multiple triggers for the same form and the
     code will run multiple times, potentially causing errors.
--   For use with another form, copy `Code.gs` into a new file, say `Code2.gs` and go through the setup, configuration and deploy steps again. You will need one
-    file per form you want to listen to.
+-   For use with another form, copy `trigger.gs` into a new file, say `trigger2.gs` and go through the setup, configuration and deploy steps again. You will
+    need one file per form you want to listen to.
 
 # Handler:
 
@@ -59,7 +59,7 @@ VAN. It then returns the VAN ID of the voter from VAN to the trigger.
 ## Setup
 
 1. Create a new Google Cloud Function
-2. Copy code from `backend.py` to your new Cloud Function
+2. Copy code from `handler.py` to your new Cloud Function
 3. Save the function and copy its URL
 4. Replace `<HANDLER URL>` in your trigger script with this URL
 
