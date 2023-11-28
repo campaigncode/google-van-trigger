@@ -1,7 +1,7 @@
 # Google <-> VAN trigger
 
-<b>A simple google script that listens to a trigger from a google form, uses said data to find the most relevant VAN ID and sync the results to an output
-spreadsheet</b>
+<b>A simple google script that listens to a trigger from a google form, uses said data to apply a survey response in VAN, and syncs the results to an output
+google spreadsheet</b>
 
 ## Prerequisites
 
