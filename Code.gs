@@ -24,7 +24,6 @@ function getVanId(e) {
 		street: formResponse[3].getResponse(),
 		zip: formResponse[4].getResponse(),
 		phone: formResponse[5].getResponse(),
-        v_key: <VAN KEY>,
         v_sq: <VAN SURVEY QUESTION>,
         v_rs: <VAN SURVEY RESPONSE>
 	};
