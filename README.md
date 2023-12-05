@@ -40,6 +40,7 @@ In `trigger.gs`, replace:
 -   `<GOOGLE FORM ID>` with the ID from the Google Form URL
 -   `<GOOGLE SHEET ID>` with the ID from the Google Sheet URL
 -   `<GOOGLE SHEET NAME>` with the name of the active sheet in the Google Form responses sheet
+-   `<VAN KEY>` with your VAN API key
 -   `<VAN SURVEY QUESTION>` with the ID of the survey question from VAN
 -   `<VAN SURVEY RESPONSE>` with the ID of the response you want applied to the survey question
 
@@ -58,17 +59,22 @@ VAN. It then returns the VAN ID of the voter from VAN to the trigger.
 
 ## Setup
 
-1. Create a new Google Cloud Function
-2. Copy code from `handler.py` to your new Cloud Function
-3. Save the function and copy its URL
-4. Replace `<HANDLER URL>` in your trigger script with this URL
-
-## Configuration
-
--   In the Cloud Function, replace:
-    -   `<VAN KEY>` with your VAN API key
+1. Create a new Google Cloud Function. If prompted to enable APIs, do so.
+2. Give the function a name.
+3. Select `Require authentication` under HTTPS options.
+4. Configure the runtime and build settings to your liking. I recommend:
+    - Default memory and CPU
+    - 20 second timeout
+    - 100 concurrent requests
+    - 0 minimum and 1 maximum number of instances
+    - All other defaults
+5. Select the runtime as `Python`. Any version will do.
+6. Copy and replace all code in `requirements.txt` from files in this repository
+7. Copy and replace all code in `main.py` from code in `handler.py` from this repository
+8. Deploy the function and copy its URL
+9. Replace `<HANDLER URL>` in your trigger script with this URL
 
 ## Deployment
 
--   You only need one handler per committee. Multiple forms can use the same handler and there is no need to deploy another handler if you want to add a new
-    trigger for a new form.
+-   You should only need one handler deployed as API keys are passed in from the trigger. If you are seeing performance bottlecks, change the runtime settings
+    of the function and redeploy.

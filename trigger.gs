@@ -24,13 +24,14 @@ function getVanId(e) {
 		street: formResponse[3].getResponse(),
 		zip: formResponse[4].getResponse(),
 		phone: formResponse[5].getResponse(),
-        v_sq: <VAN SURVEY QUESTION>,
-        v_rs: <VAN SURVEY RESPONSE>
+        van_key: <VAN API KEY>,
+        van_sq: <VAN SURVEY QUESTION>,
+        van_rs: <VAN SURVEY RESPONSE>
 	};
 
 	// standard fetch to backend cloudwatch function
 	// will fail without `Authorization` header
-	const response = UrlFetchApp.fetch('https://lawn-sign-van-trigger-5qfx7x7dta-uc.a.run.app', {
+	const response = UrlFetchApp.fetch('<HANDLER URL>', {
 		method: 'post',
 		muteHttpExceptions: true,
 		contentType: 'application/json',
@@ -51,5 +52,5 @@ function getVanId(e) {
 	sheet.getRange(cell).setValue(vanId);
 
 	// write to couldwatch (or whatever google calls it?) logs
-	Logger.log(vanId);
+	// Logger.log(vanId);
 }

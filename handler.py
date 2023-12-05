@@ -2,12 +2,12 @@ import functions_framework
 from parsons import VAN
 
 @functions_framework.http
-def lawn_sign(request):
+def handler(request):
     request_json = request.get_json(silent=True)
 
-    van_key = '<VAN KEY>'
-    s_question = request_json.get('v_sq')
-    s_response = request_json.get('v_sr')
+    van_key = request_json.get('van_key')
+    s_question = request_json.get('van_sq')
+    s_response = request_json.get('van_sr')
 
     try:
         van = VAN(api_key=van_key, db='MyVoters')
@@ -38,22 +38,10 @@ def lawn_sign(request):
             }],
             "phones": [{
                 "phoneNumber": request_json.get('phone')
-            }],
-            "surveyQuestionResponses": [{
-                'surveyQuestionId': s_question,
-                'type': 'Volunteer',
-                'cycle': 2022,
-                'name': 'FSA Lawn Sign',
-                'mediumName': 'Lawn',
-                'shortName': 'Lawn',
-                'scriptQuestion': 'Would you like a lawn sign to show your support for the campaign?',
-                'status': 'Active', 
-                'responses': [{
-                    'surveyResponseId': s_response, 'name': 'Wants Sign', 'mediumName': 'Wan', 'shortName': 'W'
-                }]
             }]
         })
 
         van_id = resp['vanId']
+        van.apply_survey_response(van_id, s_question, s_response, contact_type_id='75', input_type_id='11')
         
         return str(van_id)
