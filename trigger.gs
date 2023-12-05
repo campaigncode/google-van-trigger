@@ -48,7 +48,7 @@ function getVanId(e) {
 
 	var activeSheet = SpreadsheetApp.openById(sheetId);
 	var sheet = activeSheet.getSheetByName(sheetName);
-	var cell = 'I' + sheet.getDataRange().getNumRows();
+	var cell = '<VAN ID COLUMN>' + sheet.getDataRange().getNumRows();
 	sheet.getRange(cell).setValue(vanId);
 
 	// write to couldwatch (or whatever google calls it?) logs

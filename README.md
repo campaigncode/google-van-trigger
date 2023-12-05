@@ -43,6 +43,7 @@ In `trigger.gs`, replace:
 -   `<VAN KEY>` with your VAN API key
 -   `<VAN SURVEY QUESTION>` with the ID of the survey question from VAN
 -   `<VAN SURVEY RESPONSE>` with the ID of the response you want applied to the survey question
+-   `<VAN ID COLUMN>` with the column letter in the Google Sheet where you want the VAN IDs to be saved
 
 ## Deployment
 
