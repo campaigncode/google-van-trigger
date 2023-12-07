@@ -24,9 +24,11 @@ function getVanId(e) {
 		street: formResponse[3].getResponse(),
 		zip: formResponse[4].getResponse(),
 		phone: formResponse[5].getResponse(),
-        van_key: <VAN API KEY>,
-        van_sq: <VAN SURVEY QUESTION>,
-        van_rs: <VAN SURVEY RESPONSE>
+		van_key: '<VAN API KEY>',
+		van_sq: '<VAN SURVEY QUESTION>',
+		van_sr: '<VAN SURVEY RESPONSE>',
+		van_ct: '<VAN CONTACT TYPE ID>',
+		van_it: '<VAN INPUT TYPE ID>'
 	};
 
 	// standard fetch to backend cloudwatch function

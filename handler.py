@@ -8,6 +8,8 @@ def handler(request):
     van_key = request_json.get('van_key')
     s_question = request_json.get('van_sq')
     s_response = request_json.get('van_sr')
+    contact_type_id = request_json.get('van_ct')
+    input_type_id = request_json.get('van_it')
 
     try:
         van = VAN(api_key=van_key, db='MyVoters')
@@ -21,7 +23,7 @@ def handler(request):
 
         # UNCOMMENT TO ACTIVATE ENTIRE SCRIPT
         van_id = resp['vanId']
-        van.apply_survey_response(van_id, s_question, s_response, contact_type_id='75', input_type_id='11')
+        van.apply_survey_response(van_id, s_question, s_response, contact_type_id, input_type_id)
         
         return str(van_id)
     except:
@@ -42,6 +44,6 @@ def handler(request):
         })
 
         van_id = resp['vanId']
-        van.apply_survey_response(van_id, s_question, s_response, contact_type_id='75', input_type_id='11')
+        van.apply_survey_response(van_id, s_question, s_response, contact_type_id, input_type_id)
         
         return str(van_id)

@@ -44,6 +44,8 @@ In `trigger.gs`, replace:
 -   `<VAN SURVEY QUESTION>` with the ID of the survey question from VAN
 -   `<VAN SURVEY RESPONSE>` with the ID of the response you want applied to the survey question
 -   `<VAN ID COLUMN>` with the column letter in the Google Sheet where you want the VAN IDs to be saved
+-   `<VAN CONTACT TYPE ID>` with the ID of the contact type you want associated with the response
+-   `<VAN INPUT TYPE ID>` witht the ID of the input type you want associated with the response
 
 ## Deployment
 
@@ -62,14 +64,14 @@ VAN. It then returns the VAN ID of the voter from VAN to the trigger.
 
 1. Create a new Google Cloud Function. If prompted to enable APIs, do so.
 2. Give the function a name.
-3. Select `Require authentication` under HTTPS options.
+3. Select `Allow unauthenticated invocations` under HTTPS options.
 4. Configure the runtime and build settings to your liking. I recommend:
     - Default memory and CPU
     - 20 second timeout
-    - 100 concurrent requests
+    - 1 concurrent requests
     - 0 minimum and 1 maximum number of instances
     - All other defaults
-5. Select the runtime as `Python`. Any version will do.
+5. Select the runtime as `Python 3.10`.
 6. Copy and replace all code in `requirements.txt` from files in this repository
 7. Copy and replace all code in `main.py` from code in `handler.py` from this repository
 8. Deploy the function and copy its URL
