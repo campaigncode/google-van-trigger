@@ -16,9 +16,13 @@ google spreadsheet</b>
     -   Street address
     -   Zip code
     -   Phone number
--   Results linked from the google form to a google sheet
--   A google [Apps Script](https://script.google.com/home/projects/) project initialised
--   A google [Cloud](https://console.cloud.google.com/functions) project initialised
+-   Results linked from the google form to a google sheet: This is the sheet that the script will place VAN IDs into
+-   A google [Apps Script](https://script.google.com/home/projects/) project initialised: Appscript is what Google uses to integrate actions into its apps. It
+    allows easy access to Google Form triggers which is what we will be using in this scenario.
+-   A google [Cloud](https://console.cloud.google.com/functions) project initialised: Google cloud allows us to run cloud functions. These are small snippets of
+    code that run when their URL endpoint is called. It has a significant cost savings as it is not a container that is running all the time. It only spins up
+    when it needs to. Using Google cloud is the easiest option as we do not have to worry about any code bootstrapping. We simply write the function and let
+    Google handle the rest.
 
 # Trigger:
 
